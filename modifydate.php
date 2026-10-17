@@ -13,6 +13,7 @@ use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
 /**
  * Joomla! SEF Plugin.
  *
@@ -40,7 +41,7 @@ class PlgSystemModifyDate extends CMSPlugin
 	$doc = $this->app->getDocument();
   // equivalent of $app = JFactory::getApplication();
        $ismodified = (int) $this->params->get('modify_date', 0);
-      $dateformate = JText::_( 'DATE_FORMAT_CALENDAR_DATETIME');
+      $dateformate = Text::_( 'DATE_FORMAT_CALENDAR_DATETIME');
        if( $ismodified === 1){       
 		 $calendar = JHTML::calendar('','jform[modified_new]', 'jform_modified', $dateformate,array('size'=>'22','class'=>' required','showTime'=>true));
 		 $calendar = preg_replace("/\s+|\n+|\r/", ' ', $calendar);
